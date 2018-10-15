@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <a class="btn btn-primary" routerLink="/orderbooks">Back to OrderBooks</a>
+  </div>
+  <div class="form-group">
+    <label>Order Book Number</label>
+    <div class="form-control">{{orderBook.orderBookNumber}}</div>
+  </div>
+  <div class="form-group">
+    <label>Bond Asset</label>
+    <div class="form-control">{{orderBook.bondAsset}}</div>
+  </div>
+  <div class="form-group">
+    <label>Allocation Regulation</label>
+    <table class="table table-bordered table-inverse">
+      <tr>
+        <th>Banks</th>
+        <th>Hedge Funds</th>
+        <th>FII</th>
+      </tr>
+      <tr>
+        <td>{{orderBook.allocationRegulation.banks}}</td>
+        <td>{{orderBook.allocationRegulation.hedgefunds}}</td>
+        <td>{{orderBook.allocationRegulation.fii}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="form-group">
+    <label>Closing Date</label>
+    <div class="form-control">{{orderBook.closingDate}}</div>
+  </div>
+  <div class="row">
+    <table class="table table-bordered table-inverse">
+      <tr>
+        <th>OrderBook Entry Id</th>
+        <th>Investor</th>
+        <th>Amount</th>
+        <th>Submitted Time</th>
+      </tr>
+      <tr *ngFor="let orderBookEntry of orderBook.entries">
+        <td>
+          <a [routerLink]="['/orderbook/', orderBook.orderBookEntryId]">{{orderBookEntry.orderBookEntryId}}</a>
+        </td>
+        <td>{{orderBookEntry.investor}}</td>
+        <td>{{orderBookEntry.amount}}</td>
+        <td>{{orderBookEntry.submittedTime}}</td>
+      </tr>
+    </table>
+  </div>
+</div>

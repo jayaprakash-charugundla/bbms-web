@@ -1,0 +1,17 @@
+<div class="row">
+  <table class="table table-bordered table-inverse">
+    <tr>
+      <th>OrderBook Number</th>
+      <th>Closing Date</th>
+    </tr>
+    <tr *ngFor="let orderBook of orderBooks">
+      <td>
+        <a [routerLink]="['/orderbook/', orderBook.orderBookId]">{{orderBook.orderBookNumber}}</a>
+      </td>
+      <td>{{orderBook.closingDate}}</td>
+    </tr>
+  </table>
+</div>
+<div class="row">
+  <a class="btn btn-primary" routerLink="/orderbook">Create Order Book</a>
+</div>
