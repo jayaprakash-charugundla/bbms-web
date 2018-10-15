@@ -37,9 +37,9 @@
         <th>Amount</th>
         <th>Submitted Time</th>
       </tr>
-      <tr *ngFor="let orderBookEntry of orderBook.entries">
+      <tr *ngFor="let orderBookEntry of orderBookEntries">
         <td>
-          <a [routerLink]="['/orderbook/', orderBook.orderBookEntryId]">{{orderBookEntry.orderBookEntryId}}</a>
+          <a [routerLink]="['/orderbook/', orderBookEntry.orderBookEntryId]">{{orderBookEntry.orderBookEntryId}}</a>
         </td>
         <td>{{orderBookEntry.investor}}</td>
         <td>{{orderBookEntry.amount}}</td>

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {OrderBookService} from '../order-book.service';
 import {DatePipe} from '@angular/common';
 import {Observable} from 'rxjs';
+import {OrderBook} from '../entities/order-book';
+import {AllocationRegulation} from '../entities/allocation-regulation';
 
 @Component({
   selector: 'app-order-book-create',
@@ -31,17 +33,14 @@ export class OrderBookCreateComponent implements OnInit {
   createOrderBook() {
     if (this.orderBookForm.valid) {
       this.validMessage = 'Order Book has been created.';
-      let orderBook = {};
-      orderBook.$class = 'com.bbms.ledger.orderbook.OrderBook';
-      orderBook.orderBookId = 'OB-124-10-15-18';
+      let orderBook: OrderBook = new OrderBook();
+      orderBook.orderBookId = this.orderBookForm.value.orderBookNumber + '-' + this.datePipe.transform(new Date(), 'MM-dd-yy');
       orderBook.orderBookNumber = this.orderBookForm.value.orderBookNumber;
-      orderBook.allocationRegulation = {};
-      orderBook.allocationRegulation.$class = 'com.bbms.ledger.orderbook.AllocationRegulation';
+      orderBook.allocationRegulation = new AllocationRegulation();
       orderBook.allocationRegulation.banks = this.orderBookForm.value.banks;
       orderBook.allocationRegulation.hedgefunds = this.orderBookForm.value.hedgefunds;
       orderBook.allocationRegulation.fii = this.orderBookForm.value.fii;
       orderBook.closingDate = this.datePipe.transform(this.orderBookForm.value.closingDate, 'yyyy/MM/dd HH:mm:ss');
-      console.log(orderBook);
       this.orderBookService.createOrderBook(orderBook).subscribe(
         data => {
           this.orderBookForm.reset();
