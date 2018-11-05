@@ -8,7 +8,7 @@ const httpOptions = {
   })
 };
 
-const bbmsUrl = 'http://192.168.1.7:3000/api';
+const bbmsUrl = 'http://192.168.1.6:3000/api';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +24,10 @@ export class BondAssetService {
   createBondAsset(bondAsset) {
     let body = JSON.stringify(bondAsset);
     return this.http.post(bbmsUrl + '/com.bbms.ledger.bond.BondAsset', body, httpOptions);
+  }
+
+  getBondAsset(id: string) {
+    return this.http.get(bbmsUrl + '/com.bbms.ledger.bond.BondAsset/' + id, httpOptions);
   }
 
 }

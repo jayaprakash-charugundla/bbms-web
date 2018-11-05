@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <a class="btn btn-primary" routerLink="/bondassets">Back to BondAssets</a>
+  </div>
+  <div class="form-group">
+    <label>ISIN Code</label>
+    <div class="form-control">{{bondAsset.ISINCode}}</div>
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <div class="form-control">{{bondAsset.bond.price}}</div>
+  </div>
+  <div class="form-group">
+    <label>Coupon Type</label>
+    <div class="form-control">{{bondAsset.bond.couponType}}</div>
+  </div>
+  <div class="form-group">
+    <label>Coupon Rate</label>
+    <div class="form-control">{{bondAsset.bond.couponRate}}</div>
+  </div>
+  <div class="form-group">
+    <label>Maturity Date</label>
+    <div class="form-control">{{bondAsset.bond.dateOfMaturity}}</div>
+  </div>
+  <div class="form-group">
+    <label>Maturity Value</label>
+    <div class="form-control">{{bondAsset.bond.valueOfMaturity}}</div>
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <div class="form-control">{{bondAsset.bond.description}}</div>
+  </div>
+</div>

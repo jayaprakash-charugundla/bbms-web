@@ -1,0 +1,17 @@
+<div class="row">
+  <table class="table table-bordered table-inverse">
+    <tr>
+      <th>ISIN Code</th>
+      <th>Price</th>
+    </tr>
+    <tr *ngFor="let bondAsset of bondAssets">
+      <td>
+        <a [routerLink]="['/bondasset/', bondAsset.ISINCode]">{{bondAsset.ISINCode}}</a>
+      </td>
+      <td>{{bondAsset.bond.price}}</td>
+    </tr>
+  </table>
+</div>
+<div class="row">
+  <a class="btn btn-primary" routerLink="/createbondasset">Create Bond</a>
+</div>

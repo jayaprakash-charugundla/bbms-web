@@ -41,6 +41,7 @@ export class OrderBookCreateComponent implements OnInit {
       orderBook.allocationRegulation.hedgefunds = this.orderBookForm.value.hedgefunds;
       orderBook.allocationRegulation.fii = this.orderBookForm.value.fii;
       orderBook.closingDate = this.datePipe.transform(this.orderBookForm.value.closingDate, 'yyyy/MM/dd HH:mm:ss');
+      orderBook.description = this.orderBookForm.value.description;
       this.orderBookService.createOrderBook(orderBook).subscribe(
         data => {
           this.orderBookForm.reset();

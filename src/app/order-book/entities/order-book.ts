@@ -5,6 +5,6 @@ export class OrderBook {
   orderBookId: string;
   orderBookNumber: string;
   allocationRegulation: AllocationRegulation;
-  closingDate;
+  closingDate: string;
   description: string;
 }
