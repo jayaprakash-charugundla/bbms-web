@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 
 const httpOptions = {
@@ -8,7 +9,7 @@ const httpOptions = {
   })
 };
 
-const bbmsUrl = 'http://192.168.1.6:3000/api';
+const bbmsUrl = environment.baseUrl;
 
 @Injectable({
   providedIn: 'root'
